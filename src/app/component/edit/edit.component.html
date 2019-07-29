@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">User Name</label>
+        <input type="text" class="form-control" name="p_name" formControlName="p_name" [(ngModel)] = "adunit.p_name" #p_name/>
+      </div>
+      <div *ngIf="angForm.controls['p_name'].invalid && (angForm.controls['p_name'].dirty || angForm.controls['p_name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['p_name'].errors.required">
+          User Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Age</label>
+        <input type="text" class="form-control" name="p_age" formControlName="p_age" #p_age [(ngModel)] = "adunit.p_age"/>
+      </div>
+      <div *ngIf="angForm.controls['p_age'].invalid && (angForm.controls['p_age'].dirty || angForm.controls['p_age'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['p_age'].errors.required">
+          User Age is required.
+        </div>
+      </div>
+	  <div class="form-group">
+        <label class="col-md-4">Gender</label>
+        <input type="text" class="form-control" name="p_gender" formControlName="p_gender" #p_gender [(ngModel)] = "adunit.p_gender"/>
+      </div>
+      <div *ngIf="angForm.controls['p_gender'].invalid && (angForm.controls['p_gender'].dirty || angForm.controls['p_gender'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['p_gender'].errors.required">
+          User Gender is required.
+        </div>
+      </div>
+	  <div class="form-group">
+        <label class="col-md-4">Contact Number</label>
+        <input type="text" class="form-control" name="p_number" formControlName="p_number" #p_number [(ngModel)] = "adunit.p_number"/>
+      </div>
+      <div *ngIf="angForm.controls['p_number'].invalid && (angForm.controls['p_number'].dirty || angForm.controls['p_number'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['p_number'].errors.required">
+          User Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click)="updatePersonModel(p_name.value, p_age.value, p_gender.value, p_number.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Update Unit</button>
+      </div>
+    </form>
+  </div>
+</div>
